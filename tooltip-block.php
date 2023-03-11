@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Tooltip Block
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Add tooltips to the WordPress block editor.
  * Requires at least: 6.1
  * Requires PHP:      7.4
  * Version:           1.0.0
@@ -10,8 +10,20 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       tooltip-block
  *
- * @package           create-block
+ * @package           Tooltip Block
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+require_once 'vendor/autoload.php';
+
+// Include constants that will be used inside the plugin.
+require_once 'constants.php';
+
+// Initialize the plugin functionality.
+( new \Tooltip\Tooltip() )->hooks();
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

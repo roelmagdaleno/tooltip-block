@@ -1,0 +1,10 @@
+{
+    "name": "roelmagdaleno/tooltip-block",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Tooltip\\": "includes"
+        }
+    },
+    "require": {}
+}
