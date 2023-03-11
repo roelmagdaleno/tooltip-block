@@ -9,6 +9,10 @@ class Tooltip {
 	 * @since 1.0.0
 	 */
 	public function hooks() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		( new PostType() )->hooks();
 	}
 }
