@@ -83,7 +83,7 @@ class Tooltip {
 			'offsetSkidding'    => 0,
 			'offsetDistance'    => 10,
 	        'placement'         => 'top',
-	        'trigger'           => 'mouseenter-focus',
+	        'trigger'           => 'mouseenter focus',
 	        'zIndex'            => 9999,
         );
 
