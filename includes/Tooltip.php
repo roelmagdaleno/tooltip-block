@@ -23,7 +23,41 @@ class Tooltip {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_assets' ) );
 		add_action( 'wp_footer', array( $this, 'render_templates' ) );
+
+        if ( ! is_admin() ) {
+            return;
+        }
+
+        ( new Settings() )->hooks();
 	}
+
+    public function default_settings(): array {
+        $option_name = 'tooltips_settings';
+        $settings    = get_option( $option_name, array() );
+
+        if ( ! empty( $settings ) ) {
+            return;
+        }
+
+        $settings = array(
+            'theme' => 'light',
+            'placement' => 'top',
+            'arrow' => true,
+            'animation' => 'shift-away',
+            'duration' => 300,
+            'delay' => 0,
+            'interactive' => false,
+            'trigger' => 'mouseenter focus',
+            'hideOnClick' => true,
+            'multiple' => false,
+            'sticky' => false,
+            'allowHTML' => false,
+            'maxWidth' => 350,
+            'zIndex' => 9999,
+        );
+
+        update_option( $option_name, $settings );
+    }
 
     /**
      * Render the tooltips templates.

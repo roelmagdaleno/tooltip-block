@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edd03626b2f42f442186860fc8eb7dec",
-    "packages": [],
+    "content-hash": "49f82376ccd5ce2a47c921889beb3028",
+    "packages": [
+        {
+            "name": "roelmagdaleno/wp-settings-page-fields",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roelmagdaleno/wp-settings-page-fields.git",
+                "reference": "602d80973297ef6f933623f1eb962735b0dfde74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roelmagdaleno/wp-settings-page-fields/zipball/602d80973297ef6f933623f1eb962735b0dfde74",
+                "reference": "602d80973297ef6f933623f1eb962735b0dfde74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+                "pestphp/pest": "^1.21",
+                "phpcompatibility/phpcompatibility-wp": "*",
+                "phpmd/phpmd": "@stable",
+                "phpro/grumphp": "^1.12",
+                "phpunit/phpunit": "^9.0",
+                "squizlabs/php_codesniffer": "3.*",
+                "wp-coding-standards/wpcs": "^2.2",
+                "yoast/phpunit-polyfills": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Roel\\WP\\Settings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roel Magdaleno",
+                    "email": "roelmagdaleno@gmail.com"
+                }
+            ],
+            "description": "A package to render form fields in WordPress settings pages.",
+            "support": {
+                "issues": "https://github.com/roelmagdaleno/wp-settings-page-fields/issues",
+                "source": "https://github.com/roelmagdaleno/wp-settings-page-fields/tree/v0.1.1"
+            },
+            "time": "2022-07-21T03:37:12+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",

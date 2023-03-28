@@ -6,5 +6,7 @@
             "WP\\Tooltip\\": "includes"
         }
     },
-    "require": {}
+    "require": {
+        "roelmagdaleno/wp-settings-page-fields": "^0.1.1"
+    }
 }

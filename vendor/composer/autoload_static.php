@@ -11,12 +11,20 @@ class ComposerStaticInit7fdb9b34eeceb0b77816748e3620130c
         array (
             'WP\\Tooltip\\' => 11,
         ),
+        'R' => 
+        array (
+            'Roel\\WP\\Settings\\' => 17,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'WP\\Tooltip\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
+        ),
+        'Roel\\WP\\Settings\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/roelmagdaleno/wp-settings-page-fields/src',
         ),
     );
 

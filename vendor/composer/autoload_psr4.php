@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'WP\\Tooltip\\' => array($baseDir . '/includes'),
+    'Roel\\WP\\Settings\\' => array($vendorDir . '/roelmagdaleno/wp-settings-page-fields/src'),
 );
