@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/tooltip-block",
-  "version": "0.1.0",
+  "name": "roelmagdaleno/tooltip-block",
+  "version": "1.0.0",
   "title": "Tooltip Block",
   "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "icon": "status",
+  "description": "Add tooltips to the WordPress block editor.",
   "supports": {
     "html": false
   },

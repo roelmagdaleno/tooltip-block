@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Tooltip\\' => array($baseDir . '/includes'),
+    'WP\\Tooltip\\' => array($baseDir . '/includes'),
 );

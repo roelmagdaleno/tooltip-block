@@ -1,6 +1,6 @@
 <?php
 
-namespace Tooltip;
+namespace WP\Tooltip;
 
 class PostType {
 	/**
@@ -8,8 +8,31 @@ class PostType {
 	 *
 	 * @since 1.0.0
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		add_action( 'init', array( $this, 'register' ) );
+	}
+
+    /**
+     * Fetch the tooltips by their IDs.
+     *
+     * @since  1.0.0
+     *
+     * @param  array   $tooltip_ids   The tooltip IDs to fetch.
+     * @return array                  The found tooltips.
+     */
+	public function in( array $tooltip_ids ): array {
+        if ( empty( $tooltip_ids ) ) {
+            return array();
+        }
+
+        $args = array(
+            'post__in'    => $tooltip_ids,
+            'post_status' => 'published',
+            'post_type'   => TOOLTIP_BLOCK_POST_TYPE_NAME,
+            'numberposts' => -1,
+        );
+
+        return get_posts( $args );
 	}
 
 	/**
@@ -18,7 +41,7 @@ class PostType {
 	 *
 	 * @since 1.0.0
 	 */
-	public function register() : void {
+	public function register(): void {
 		$labels = array(
 			'name'                  => 'Tooltips',
 			'singular_name'         => 'Tooltip',

@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit7fdb9b34eeceb0b77816748e3620130c
 {
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'W' => 
         array (
-            'Tooltip\\' => 8,
+            'WP\\Tooltip\\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Tooltip\\' => 
+        'WP\\Tooltip\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),

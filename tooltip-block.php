@@ -21,9 +21,10 @@ require_once 'vendor/autoload.php';
 
 // Include constants that will be used inside the plugin.
 require_once 'constants.php';
+require_once 'helpers.php';
 
 // Initialize the plugin functionality.
-( new \Tooltip\Tooltip() )->hooks();
+( new \WP\Tooltip\Tooltip() )->hooks();
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

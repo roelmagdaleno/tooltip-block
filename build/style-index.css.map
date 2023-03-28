@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACE;EACA;EACA;AACF,C","sources":["webpack://tooltip-block/./src/style.scss"],"sourcesContent":[".wp-tooltip {\n  color: var(--wp--preset--color--secondary);\n  text-decoration-line: underline;\n  text-decoration-style: dotted;\n}\n"],"names":[],"sourceRoot":""}

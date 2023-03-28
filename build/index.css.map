@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA;EACE;EACA;EACA;EACA;AACF,C","sources":["webpack://tooltip-block/./src/index.scss"],"sourcesContent":[".wp-tooltip-editor-control {\n  padding: 16px;\n  min-width: auto;\n  width: 90vw;\n  max-width: 360px;\n}\n"],"names":[],"sourceRoot":""}
