@@ -28,10 +28,13 @@ class Tooltip {
             return;
         }
 
+		$file = dirname( __DIR__ ) . '/tooltip-block.php';
+		register_activation_hook( $file, array( $this, 'default_settings' ) );
+
         ( new Settings() )->hooks();
 	}
 
-    public function default_settings(): array {
+    public function default_settings(): void {
         $option_name = 'tooltips_settings';
         $settings    = get_option( $option_name, array() );
 
@@ -40,20 +43,21 @@ class Tooltip {
         }
 
         $settings = array(
-            'theme' => 'light',
-            'placement' => 'top',
-            'arrow' => true,
-            'animation' => 'shift-away',
-            'duration' => 300,
-            'delay' => 0,
-            'interactive' => false,
-            'trigger' => 'mouseenter focus',
-            'hideOnClick' => true,
-            'multiple' => false,
-            'sticky' => false,
-            'allowHTML' => false,
-            'maxWidth' => 350,
-            'zIndex' => 9999,
+	        'allowHTML'         => true,
+	        'arrow'             => true,
+	        'delayShow'         => 0,
+	        'delayHide'         => 0,
+	        'durationShow'      => 300,
+	        'durationHide'      => 250,
+	        'hideOnClick'       => true,
+	        'interactive'       => false,
+	        'interactiveBorder' => 2,
+	        'maxWidth'          => 350,
+			'offsetSkidding'    => 0,
+			'offsetDistance'    => 10,
+	        'placement'         => 'top',
+	        'trigger'           => 'mouseenter-focus',
+	        'zIndex'            => 9999,
         );
 
         update_option( $option_name, $settings );

@@ -62,17 +62,29 @@ class Settings {
         );
 
         $group = new Group( array(
+            new Checkbox( 'allowHTML', array(
+                'label'       => 'Allow HTML',
+                'description' => 'Determines if content strings are parsed as HTML instead of text.',
+            ) ),
             new Checkbox( 'arrow', array(
                 'label'       => 'Show arrow',
-                'description' => 'Determines if the tippy has an arrow.',
+                'description' => 'Determines if the tooltip has an arrow.',
             ) ),
-            new Number( 'delay', array(
-                'label'       => 'Delay',
-                'description' => 'Delay in ms once a trigger event is fired before a tooltip shows or hides.',
+            new Number( 'delayShow', array(
+                'label'       => 'Delay show',
+                'description' => 'Delay in ms once a trigger event is fired before a tooltip shows.',
             ) ),
-            new Number( 'duration', array(
-                'label'       => 'Duration',
-                'description' => 'Duration in ms of the transition animation.',
+            new Number( 'delayHide', array(
+                'label'       => 'Delay hide',
+                'description' => 'Delay in ms once a trigger event is fired before a tooltip hides.',
+            ) ),
+            new Number( 'durationShow', array(
+                'label'       => 'Duration show',
+                'description' => 'Duration in ms of the transition animation when tooltip shows.',
+            ) ),
+            new Number( 'durationHide', array(
+                'label'       => 'Duration show',
+                'description' => 'Duration in ms of the transition animation when tooltip hides.',
             ) ),
             new Checkbox( 'hideOnClick', array(
                 'label'       => 'Hide on click',
@@ -88,15 +100,15 @@ class Settings {
             ) ),
             new Number( 'maxWidth', array(
                 'label'       => 'Max width',
-                'description' => 'Specifies the maximum width of the tippy. Useful to prevent it from being too horizontally wide to read.',
+                'description' => 'Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.',
             ) ),
             new Number( 'offsetSkidding', array(
                 'label'       => 'Offset skidding',
-                'description' => 'Displaces the tippy from its reference element in pixels (skidding).',
+                'description' => 'Displaces the tooltip from its reference element in pixels (skidding).',
             ) ),
             new Number( 'offsetDistance', array(
                 'label'       => 'Offset distance',
-                'description' => 'Displaces the tippy from its reference element in pixels (distance).',
+                'description' => 'Displaces the tooltip from its reference element in pixels (distance).',
             ) ),
             new Select( 'placement', array(
                 'label'         => 'Placement',
@@ -122,7 +134,7 @@ class Settings {
             ) ),
             new Select( 'trigger', array(
                 'label'         => 'Trigger',
-                'description'   => 'Determines the events that cause the tippy to show. Multiple event names are separated by spaces.',
+                'description'   => 'Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.',
                 'default_value' => 'mouseenter-focus',
                 'options'       => array(
                     'mouseenter-focus' => array( 'label' => 'mouseenter focus' ),
