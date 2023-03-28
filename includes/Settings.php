@@ -83,7 +83,7 @@ class Settings {
                 'description' => 'Duration in ms of the transition animation when tooltip shows.',
             ) ),
             new Number( 'durationHide', array(
-                'label'       => 'Duration show',
+                'label'       => 'Duration hide',
                 'description' => 'Duration in ms of the transition animation when tooltip hides.',
             ) ),
             new Checkbox( 'hideOnClick', array(
@@ -137,10 +137,10 @@ class Settings {
                 'description'   => 'Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.',
                 'default_value' => 'mouseenter-focus',
                 'options'       => array(
-                    'mouseenter-focus' => array( 'label' => 'mouseenter focus' ),
+                    'mouseenter focus' => array( 'label' => 'mouseenter focus' ),
                     'click'            => array( 'label' => 'click' ),
                     'focusin'          => array( 'label' => 'focusin' ),
-                    'mouseenter-click' => array( 'label' => 'mouseenter click' ),
+                    'mouseenter click' => array( 'label' => 'mouseenter click' ),
                 ),
             ) ),
             new Number( 'zIndex', array(

@@ -21,7 +21,7 @@ class Tooltip {
 		$this->post_type = new PostType();
 		$this->post_type->hooks();
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_assets' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets_in_frontend' ) );
 		add_action( 'wp_footer', array( $this, 'render_templates' ) );
 
         if ( ! is_admin() ) {
@@ -32,6 +32,33 @@ class Tooltip {
 		register_activation_hook( $file, array( $this, 'default_settings' ) );
 
         ( new Settings() )->hooks();
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets_in_admin' ) );
+	}
+
+	public function enqueue_assets_in_admin( string $hook ): void {
+		if ( 'settings_page_tooltips' !== $hook ) {
+			return;
+		}
+
+		$this->add_assets();
+
+		wp_enqueue_script(
+			'wp-tooltip-admin',
+			plugins_url( 'admin/assets/js/tooltip-admin.js', dirname( __FILE__ ) ),
+			array( 'wp-tooltip' ),
+			TOOLTIP_BLOCK_VERSION,
+			true
+		);
+	}
+
+	public function enqueue_assets_in_frontend(): void {
+		global $post;
+
+		if ( ! $post || ! tt_has_tooltips( $post->post_content ) ) {
+			return;
+		}
+
+		$this->add_assets();
 	}
 
     public function default_settings(): void {
@@ -108,12 +135,6 @@ class Tooltip {
      * @since 1.0.0
      */
 	public function add_assets(): void {
-		global $post;
-
-		if ( ! $post || ! tt_has_tooltips( $post->post_content ) ) {
-			return;
-		}
-
 		wp_enqueue_style(
 			'tooltip-block',
 			plugins_url( 'build/style-index.css', dirname( __FILE__ ) ),
@@ -144,5 +165,8 @@ class Tooltip {
             TOOLTIP_BLOCK_VERSION,
             true
         );
+
+		$settings = get_option( 'tooltips_settings', array() );
+		wp_localize_script( 'wp-tooltip', 'wpTooltip', $settings );
 	}
 }

@@ -5,14 +5,28 @@
         Powered by <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a>
     </p>
 
-    <form method="POST" action="options.php" novalidate>
-        <?php
+	<div class="wp-tooltip__admin-settings" style="display: flex;">
+		<form method="POST" action="options.php" style="flex: 2;" novalidate>
+			<?php
 
-        settings_fields( 'tooltips_group' );
-        do_settings_sections( 'tooltips' );
+			settings_fields( 'tooltips_group' );
+			do_settings_sections( 'tooltips' );
 
-        submit_button();
+			submit_button();
 
-        ?>
-    </form>
+			?>
+		</form>
+
+		<div class="wp-tooltip__preview" style="flex: 1; position: sticky; align-self: flex-start; top: 80px;">
+			<h2>Preview</h2>
+
+			<p>This is my <span class="wp-tooltip" data-tooltip-id="0">tooltip</span>.</p>
+
+			<div style="display: none;">
+				<div id="wp-tooltip-0">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
