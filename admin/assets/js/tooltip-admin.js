@@ -1,7 +1,7 @@
-const elementsAsColorPickers = [
-	'backgroundColor',
-	'textColor',
-];
+const elementsAsColorPickers = {
+	'backgroundColor': '#333333',
+	'textColor': '#ffffff',
+};
 
 const elementsWithPropsAsArray = [
 	'delayShow',
@@ -83,7 +83,41 @@ function wpTooltip_updateTooltipProps(e) {
 	tippyInstance.setProps({ [prop]: value });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function wpTooltip_generate_custom_css(newColors) {
+	const styleEl = document.querySelector('#tooltip-block-inline-css');
+
+	if (!styleEl) {
+		return;
+	}
+
+	let customCSS = wpTooltip.customCSS;
+
+	Object.keys(elementsAsColorPickers).forEach((id) => {
+		const currentColor = newColors[id] ? newColors[id] : document.querySelector(`#${ id }`).value;
+		customCSS = customCSS.replaceAll(`{{${ id }}}`, currentColor);
+	});
+
+	styleEl.innerHTML = customCSS;
+}
+
+/**
+ * Render the color picker for the given element.
+ *
+ * @since 1.0.0
+ *
+ * @param {object} element The element.
+ * @param {string} defaultColor The default color.
+ */
+function wpTooltip_renderColorPicker(element, defaultColor) {
+	const options = {
+		defaultColor,
+		change: (event, ui) => wpTooltip_generate_custom_css({ [element.id]: ui.color.toCSS('hex') }),
+	};
+
+	jQuery(element).wpColorPicker(options);
+}
+
+document.addEventListener('DOMContentLoaded', ( ) => {
 	const settings = wpTooltip_getDefaultSettings();
 	const ids = Object.keys(settings);
 
@@ -94,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			return;
 		}
 
-		if (elementsAsColorPickers.includes(id)) {
-			jQuery(element).wpColorPicker();
+		if (Object.keys(elementsAsColorPickers).includes(id)) {
+			wpTooltip_renderColorPicker(element, elementsAsColorPickers[id]);
 		}
 
 		const event = element.type === 'number' ? 'input' : 'change';

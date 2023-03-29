@@ -194,6 +194,13 @@ class Tooltip {
             true
         );
 
+		/**
+		 * Set the custom css to be used as template in JavaScript.
+		 *
+		 * @since 1.0.0
+		 */
+		$settings['customCSS'] = tt_get_custom_css( $settings, true );
+
 		wp_localize_script( 'wp-tooltip', 'wpTooltip', $settings );
 	}
 }

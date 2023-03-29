@@ -57,24 +57,18 @@ function tt_get_tooltips_ids_from_content( string $content ) : array {
  *
  * @since  1.0.0
  *
- * @param  array   $settings   The plugin's settings.
- * @return string              The custom CSS.
+ * @param  array   $settings      The plugin's settings.
+ * @param  bool    $as_template   Whether to return the CSS as a template string.
+ * @return string                 The custom CSS.
  */
-function tt_get_custom_css( array $settings ): string {
-    if ( empty( $settings ) ) {
-        return '';
-    }
-
-    if ( ! isset( $settings['backgroundColor'], $settings['textColor'] ) ) {
-        return '';
-    }
-
-    $background_color = $settings['backgroundColor'];
+function tt_get_custom_css( array $settings, bool $as_template = false ): string {
+    $background_color = $as_template ? '{{backgroundColor}}' : $settings['backgroundColor'] ?? '#333333';
+    $text_color       = $as_template ? '{{textColor}}' : $settings['textColor'] ?? '#FFFFFF';
 
     return '
     .tippy-box[data-theme~="wp-tooltip"] {
         background-color: ' . $background_color . ';
-        color: ' . $settings['textColor'] . ';
+        color: ' . $text_color . ';
     }
     
     .tippy-box[data-theme~="wp-tooltip"][data-placement^="top"] > .tippy-arrow::before {

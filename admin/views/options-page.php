@@ -21,9 +21,12 @@
             class="wp-tooltip__preview"
             style="flex: 1; position: sticky; align-self: flex-start; top: 80px;"
         >
-			<h2>Preview</h2>
+			<h2 style="margin-bottom: 0;">Preview</h2>
+			<p style="margin-top: 0;">Don't forget to save changes after modify your settings.</p>
 
-			<p>This is my <span class="wp-tooltip" data-tooltip-id="0">tooltip</span>.</p>
+			<div style="background-color: white; padding: 2rem; border-radius: 4px;">
+				<p>This is my <span class="wp-tooltip" data-tooltip-id="0">tooltip</span>.</p>
+			</div>
 
 			<div style="display: none;">
 				<div id="wp-tooltip-0">
