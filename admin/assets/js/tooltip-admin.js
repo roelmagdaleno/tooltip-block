@@ -3,6 +3,39 @@ const elementsAsColorPickers = [
 	'textColor',
 ];
 
+const elementsWithPropsAsArray = [
+	'delayShow',
+	'delayHide',
+	'durationShow',
+	'durationHide',
+	'offsetSkidding',
+	'offsetDistance',
+];
+
+function wpTooltip_getValueAsArrayForProp(prop, value) {
+	if (!elementsWithPropsAsArray.includes(prop)) {
+		return value;
+	}
+
+	const singleProps = {
+		'delay': ['delayShow', 'delayHide'],
+		'duration': ['durationShow', 'durationHide'],
+		'offset': ['offsetSkidding', 'offsetDistance'],
+	};
+
+	const singleProp = Object.keys(singleProps).find(
+		(singleProp) => prop.includes(singleProp)
+	);
+
+	const firstProp = document.querySelector(`#${ singleProps[singleProp][0] }`).value;
+	const secondProp = document.querySelector(`#${ singleProps[singleProp][1] }`).value;
+
+	return {
+		prop: singleProp,
+		value: [parseInt(firstProp), parseInt(secondProp)],
+	};
+}
+
 function wpTooltip_updateTooltipProps(e) {
 	const element = e.target;
 	const tooltip = document.querySelector('.wp-tooltip');
@@ -11,19 +44,20 @@ function wpTooltip_updateTooltipProps(e) {
 		return;
 	}
 
-	const prop = element.id;
-	let value = false;
+	const gettersValues = {
+		'checkbox': (element) => element.checked,
+		'number': (element) => parseInt(element.value),
+		'select-one': (element) => element.value,
+	};
 
-	if (element.type === 'checkbox') {
-		value = element.checked;
-	}
+	let prop = element.id;
+	let value = gettersValues[element.type](element);
+	const isPropArray = elementsWithPropsAsArray.includes(prop);
 
-	if (element.type === 'number') {
-		value = parseInt(element.value);
-	}
-
-	if (element.type === 'select-one') {
-		value = element.value;
+	if (isPropArray) {
+		let valueAsArray = wpTooltip_getValueAsArrayForProp(prop, value);
+		prop = valueAsArray.prop;
+		value = valueAsArray.value;
 	}
 
 	const tippyInstance = tooltip._tippy;

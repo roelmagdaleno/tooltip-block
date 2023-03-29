@@ -1,6 +1,17 @@
 /* global wpTooltip */
 
 function wpTooltip_getDefaultSettings() {
+	const missingSettings = {
+		backgroundColor: '',
+		textColor: '',
+		delayShow: 0,
+		delayHide: 0,
+		durationShow: 0,
+		durationHide: 0,
+		offsetSkidding: 0,
+		offsetDistance: 0,
+	};
+
 	return !wpTooltip ? { allowHTML: true } : {
 		allowHTML: wpTooltip.allowHTML === '1',
 		arrow: wpTooltip.arrow === '1',
@@ -14,8 +25,7 @@ function wpTooltip_getDefaultSettings() {
 		placement: wpTooltip.placement,
 		trigger: wpTooltip.trigger,
 		zIndex: parseInt(wpTooltip.zIndex),
-		backgroundColor: '',
-		textColor: '',
+		...missingSettings,
 	};
 }
 
