@@ -12,6 +12,15 @@ const elementsWithPropsAsArray = [
 	'offsetDistance',
 ];
 
+/**
+ * Get the value of the prop as an array.
+ *
+ * @since 1.0.0
+ *
+ * @param {string} prop The prop.
+ * @param {string} value The value of the prop.
+ * @returns {object} The prop and the value as an array.
+ */
 function wpTooltip_getValueAsArrayForProp(prop, value) {
 	if (!elementsWithPropsAsArray.includes(prop)) {
 		return value;
@@ -36,6 +45,16 @@ function wpTooltip_getValueAsArrayForProp(prop, value) {
 	};
 }
 
+/**
+ * Update the tooltip props.
+ *
+ * If the current prop belongs to an array, then return the array
+ * from `wpTooltip_getValueAsArrayForProp` function.
+ *
+ * @since 1.0.0
+ *
+ * @param e   {object}   The event object.
+ */
 function wpTooltip_updateTooltipProps(e) {
 	const element = e.target;
 	const tooltip = document.querySelector('.wp-tooltip');

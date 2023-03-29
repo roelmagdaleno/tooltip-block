@@ -35,6 +35,13 @@ class Tooltip {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets_in_admin' ) );
 	}
 
+	/**
+	 * Enqueue the assets in the admin.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string   $hook   The current admin page.
+	 */
 	public function enqueue_assets_in_admin( string $hook ): void {
 		if ( 'settings_page_tooltips' !== $hook ) {
 			return;
@@ -53,6 +60,11 @@ class Tooltip {
 		);
 	}
 
+	/**
+	 * Enqueue the assets in the frontend.
+	 *
+	 * @since 1.0.0
+	 */
 	public function enqueue_assets_in_frontend(): void {
 		global $post;
 
@@ -63,6 +75,12 @@ class Tooltip {
 		$this->add_assets();
 	}
 
+	/**
+	 * Set the default settings.
+	 * This method is executed when the plugin is activated.
+	 *
+	 * @since 1.0.0
+	 */
     public function default_settings(): void {
         $option_name = 'tooltips_settings';
         $settings    = get_option( $option_name, array() );

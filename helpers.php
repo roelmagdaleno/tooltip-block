@@ -52,6 +52,14 @@ function tt_get_tooltips_ids_from_content( string $content ) : array {
     return array_filter( $tooltips_ids ); // We don't need the tooltips with ID 0.
 }
 
+/**
+ * Get the custom css from the settings.
+ *
+ * @since  1.0.0
+ *
+ * @param  array   $settings   The plugin's settings.
+ * @return string              The custom CSS.
+ */
 function tt_get_custom_css( array $settings ): string {
     if ( empty( $settings ) ) {
         return '';

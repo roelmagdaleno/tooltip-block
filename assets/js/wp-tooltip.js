@@ -1,5 +1,12 @@
 /* global wpTooltip */
 
+/**
+ * Get the default settings for the tooltips.
+ *
+ * @since 1.0.0
+ *
+ * @returns {object}   The default settings.
+ */
 function wpTooltip_getDefaultSettings() {
 	const missingSettings = {
 		backgroundColor: '',
