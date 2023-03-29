@@ -62,6 +62,16 @@ class Settings {
         );
 
         $group = new Group( array(
+            new Text( 'backgroundColor', array(
+                'label'         => 'Background color',
+                'description'   => 'Specifies the background color of the tooltip.',
+                'default_value' => '#333333',
+            ) ),
+            new Text( 'textColor', array(
+                'label'         => 'Text color',
+                'description'   => 'Specifies the text color of the tooltip.',
+                'default_value' => '#ffffff',
+            ) ),
             new Checkbox( 'allowHTML', array(
                 'label'       => 'Allow HTML',
                 'description' => 'Determines if content strings are parsed as HTML instead of text.',

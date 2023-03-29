@@ -1,3 +1,8 @@
+const elementsAsColorPickers = [
+	'backgroundColor',
+	'textColor',
+];
+
 function wpTooltip_updateTooltipProps(e) {
 	const element = e.target;
 	const tooltip = document.querySelector('.wp-tooltip');
@@ -34,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (!element) {
 			return;
+		}
+
+		if (elementsAsColorPickers.includes(id)) {
+			jQuery(element).wpColorPicker();
 		}
 
 		const event = element.type === 'number' ? 'input' : 'change';

@@ -42,10 +42,12 @@ class Tooltip {
 
 		$this->add_assets();
 
+        wp_enqueue_style( 'wp-color-picker' );
+
 		wp_enqueue_script(
 			'wp-tooltip-admin',
 			plugins_url( 'admin/assets/js/tooltip-admin.js', dirname( __FILE__ ) ),
-			array( 'wp-tooltip' ),
+			array( 'wp-tooltip', 'wp-color-picker' ),
 			TOOLTIP_BLOCK_VERSION,
 			true
 		);
@@ -85,6 +87,8 @@ class Tooltip {
 	        'placement'         => 'top',
 	        'trigger'           => 'mouseenter focus',
 	        'zIndex'            => 9999,
+            'backgroundColor'   => '#333333',
+            'textColor'         => '#ffffff',
         );
 
         update_option( $option_name, $settings );

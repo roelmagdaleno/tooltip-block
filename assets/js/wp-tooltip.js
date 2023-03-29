@@ -14,6 +14,8 @@ function wpTooltip_getDefaultSettings() {
 		placement: wpTooltip.placement,
 		trigger: wpTooltip.trigger,
 		zIndex: parseInt(wpTooltip.zIndex),
+		backgroundColor: '',
+		textColor: '',
 	};
 }
 

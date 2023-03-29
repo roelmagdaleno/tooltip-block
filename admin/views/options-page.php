@@ -17,7 +17,10 @@
 			?>
 		</form>
 
-		<div class="wp-tooltip__preview" style="flex: 1; position: sticky; align-self: flex-start; top: 80px;">
+		<div
+            class="wp-tooltip__preview"
+            style="flex: 1; position: sticky; align-self: flex-start; top: 80px;"
+        >
 			<h2>Preview</h2>
 
 			<p>This is my <span class="wp-tooltip" data-tooltip-id="0">tooltip</span>.</p>
