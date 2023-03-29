@@ -139,12 +139,18 @@ class Tooltip {
      * @since 1.0.0
      */
 	public function add_assets(): void {
+        $settings = get_option( 'tooltips_settings', array() );
+
 		wp_enqueue_style(
 			'tooltip-block',
 			plugins_url( 'build/style-index.css', dirname( __FILE__ ) ),
 			null,
 			TOOLTIP_BLOCK_VERSION
 		);
+
+        if ( isset( $settings['backgroundColor'], $settings['textColor'] ) ) {
+            wp_add_inline_style( 'tooltip-block', tt_get_custom_css( $settings ) );
+        }
 
         wp_enqueue_script(
             'wp-tooltip__popper',
@@ -170,7 +176,6 @@ class Tooltip {
             true
         );
 
-		$settings = get_option( 'tooltips_settings', array() );
 		wp_localize_script( 'wp-tooltip', 'wpTooltip', $settings );
 	}
 }

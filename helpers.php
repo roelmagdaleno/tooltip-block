@@ -51,3 +51,38 @@ function tt_get_tooltips_ids_from_content( string $content ) : array {
 
     return array_filter( $tooltips_ids ); // We don't need the tooltips with ID 0.
 }
+
+function tt_get_custom_css( array $settings ): string {
+    if ( empty( $settings ) ) {
+        return '';
+    }
+
+    if ( ! isset( $settings['backgroundColor'], $settings['textColor'] ) ) {
+        return '';
+    }
+
+    $background_color = $settings['backgroundColor'];
+
+    return '
+    .tippy-box[data-theme~="wp-tooltip"] {
+        background-color: ' . $background_color . ';
+        color: ' . $settings['textColor'] . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"][data-placement^="top"] > .tippy-arrow::before {
+        border-top-color: ' . $background_color . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"][data-placement^="bottom"] > .tippy-arrow::before {
+      border-bottom-color: ' . $background_color . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"][data-placement^="left"] > .tippy-arrow::before {
+      border-left-color: ' . $background_color . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"][data-placement^="right"] > .tippy-arrow::before {
+      border-right-color: ' . $background_color . ';
+    }
+    ';
+}

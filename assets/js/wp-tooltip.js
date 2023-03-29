@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				? `The tooltip with ID ${ id } does not exist.`
 				: template.innerHTML;
 		},
+		theme: 'wp-tooltip',
 		...wpTooltip_getDefaultSettings()
 	};
 
