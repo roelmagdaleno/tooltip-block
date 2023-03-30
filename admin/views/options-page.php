@@ -5,8 +5,8 @@
         Powered by <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a>
     </p>
 
-	<div class="wp-tooltip__admin-settings" style="display: flex;">
-		<form method="POST" action="options.php" style="flex: 2;" novalidate>
+	<div class="wp-tooltip__admin-settings" style="display: flex; gap: 10px;">
+		<form method="POST" action="options.php" id="form" style="flex: 2;" novalidate>
 			<?php
 
 			settings_fields( 'tooltips_group' );
@@ -33,6 +33,14 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</div>
 			</div>
+
+			<p class="submit">
+				<button
+					type="button"
+					class="button button-primary"
+					id="wp-tooltip__save-changes"
+				>Save Changes</button>
+			</p>
 		</div>
 	</div>
 </div>

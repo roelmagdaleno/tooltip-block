@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Plugin Name:       Tooltip Block
  * Description:       Add tooltips to the WordPress block editor.
- * Requires at least: 6.1
+ * Requires at least: 6.2
  * Requires PHP:      7.4
  * Version:           1.0.0
  * Author:            Roel Magdaleno
+ * Author URI:        https://roelmagdaleno.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       tooltip-block

@@ -83,6 +83,13 @@ function wpTooltip_updateTooltipProps(e) {
 	tippyInstance.setProps({ [prop]: value });
 }
 
+/**
+ * Generate the custom CSS.
+ *
+ * @since 1.0.0
+ *
+ * @param {object} newColors The new colors.
+ */
 function wpTooltip_generate_custom_css(newColors) {
 	const styleEl = document.querySelector('#tooltip-block-inline-css');
 
@@ -135,4 +142,7 @@ document.addEventListener('DOMContentLoaded', ( ) => {
 		const event = element.type === 'number' ? 'input' : 'change';
 		element.addEventListener(event, wpTooltip_updateTooltipProps);
 	});
+
+	const saveChangesButton = document.querySelector('#wp-tooltip__save-changes');
+	saveChangesButton.addEventListener('click', () => document.forms[0].requestSubmit());
 });
