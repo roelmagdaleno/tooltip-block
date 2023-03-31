@@ -1,4 +1,4 @@
-/* global wpTooltip */
+/* global wpTooltip, tippy */
 
 /**
  * Get the default settings for the tooltips.
@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		return;
 	}
 
+	const theme = wpTooltip.theme === 'custom' ? 'wp-tooltip' : wpTooltip.theme;
+
 	const args = {
+		theme,
 		content(reference) {
 			const id = reference.getAttribute('data-tooltip-id');
 			const template = document.querySelector(`#wp-tooltip-${ id }`);
@@ -52,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				? `The tooltip with ID ${ id } does not exist.`
 				: template.innerHTML;
 		},
-		theme: 'wp-tooltip',
 		...wpTooltip_getDefaultSettings()
 	};
 

@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1>Tooltips</h1>
+    <h1>Tooltips Settings</h1>
 
 	<div class="wp-tooltip__admin-settings" style="display: flex; gap: 10px;">
 		<form method="POST" action="options.php" id="form" style="flex: 2;" novalidate>
@@ -18,7 +18,7 @@
             style="flex: 1; position: sticky; align-self: flex-start; top: 80px;"
         >
 			<h2 style="margin-bottom: 0;">Preview</h2>
-			<p style="margin-top: 0;">Don't forget to save changes after modify your settings.</p>
+			<p>Change a setting and preview the tooltip in real time. Don't forget to save changes after modify your settings.</p>
 
 			<div style="background-color: white; padding: 2rem; border-radius: 4px;">
 				<p>This is my <span class="wp-tooltip" data-tooltip-id="0">tooltip</span>.</p>

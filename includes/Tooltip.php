@@ -105,6 +105,7 @@ class Tooltip {
 	        'placement'         => 'top',
 	        'trigger'           => 'mouseenter focus',
 	        'zIndex'            => 9999,
+	        'theme'             => 'default',
             'backgroundColor'   => '#333333',
             'textColor'         => '#ffffff',
             'linkColor'         => '#58b4ff',
@@ -168,7 +169,29 @@ class Tooltip {
 			TOOLTIP_BLOCK_VERSION
 		);
 
-        if ( isset( $settings['backgroundColor'], $settings['textColor'] ) ) {
+        $predefined_themes = array(
+            'light',
+            'light-border',
+            'material',
+            'translucent',
+        );
+
+        if ( isset( $settings['theme'] ) && in_array( $settings['theme'], $predefined_themes, true ) ) {
+            wp_enqueue_style(
+                'wp-tooltip__theme-' . $settings['theme'],
+                plugins_url( 'assets/css/themes/' . $settings['theme'] . '.css', dirname( __FILE__ ) ),
+                array(),
+                TOOLTIP_BLOCK_VERSION
+            );
+        }
+
+        if ( isset( $settings['theme'] ) && 'custom' === $settings['theme'] ) {
+            /**
+             * Set the custom css to be used as template in JavaScript.
+             *
+             * @since 1.0.0
+             */
+            $settings['customCSS'] = tt_get_custom_css( $settings, true );
             wp_add_inline_style( 'tooltip-block', tt_get_custom_css( $settings ) );
         }
 
@@ -195,13 +218,6 @@ class Tooltip {
             TOOLTIP_BLOCK_VERSION,
             true
         );
-
-		/**
-		 * Set the custom css to be used as template in JavaScript.
-		 *
-		 * @since 1.0.0
-		 */
-		$settings['customCSS'] = tt_get_custom_css( $settings, true );
 
 		wp_localize_script( 'wp-tooltip', 'wpTooltip', $settings );
 	}

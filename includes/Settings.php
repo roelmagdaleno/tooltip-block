@@ -152,6 +152,19 @@ class Settings {
 					'label'       => 'Z-index',
 					'description' => 'Specifies the z-index CSS on the root popper node.',
 				) ),
+                new Select( 'theme', array(
+                    'label'         => 'Theme',
+                    'description'   => 'Determines the theme of the tooltip.',
+                    'default_value' => 'default',
+                    'options'       => array(
+                        'default'      => array( 'label' => 'Default' ),
+                        'light'        => array( 'label' => 'Light' ),
+                        'light-border' => array( 'label' => 'Light Border' ),
+                        'material'     => array( 'label' => 'Material' ),
+                        'translucent'  => array( 'label' => 'Translucent' ),
+                        'custom'       => array( 'label' => 'Custom Theme' ),
+                    ),
+                ) ),
 			), 'tooltips_settings' ),
 			'styling' => new Group( array(
 				new Text( 'backgroundColor', array(
@@ -186,6 +199,10 @@ class Settings {
 				},
 				$this->page
 			);
+
+            if ( ! isset( $settings[ $section ] ) ) {
+                continue;
+            }
 
 			foreach ( $settings[ $section ]->elements() as $setting ) {
 				add_settings_field(
