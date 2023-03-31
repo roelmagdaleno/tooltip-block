@@ -11,6 +11,8 @@ function wpTooltip_getDefaultSettings() {
 	const missingSettings = {
 		backgroundColor: '',
 		textColor: '',
+		linkColor: '',
+		linkHoverColor: '',
 		delayShow: 0,
 		delayHide: 0,
 		durationShow: 0,

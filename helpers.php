@@ -64,11 +64,21 @@ function tt_get_tooltips_ids_from_content( string $content ) : array {
 function tt_get_custom_css( array $settings, bool $as_template = false ): string {
     $background_color = $as_template ? '{{backgroundColor}}' : $settings['backgroundColor'] ?? '#333333';
     $text_color       = $as_template ? '{{textColor}}' : $settings['textColor'] ?? '#FFFFFF';
+    $link_color       = $as_template ? '{{linkColor}}' : $settings['linkColor'] ?? '#58b4ff';
+	$link_hover_color = $as_template ? '{{linkHoverColor}}' : $settings['linkHoverColor'] ?? '#58b4ff';
 
     return '
     .tippy-box[data-theme~="wp-tooltip"] {
         background-color: ' . $background_color . ';
         color: ' . $text_color . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"] a {
+        color: ' . $link_color . ';
+    }
+    
+    .tippy-box[data-theme~="wp-tooltip"] a:hover {
+        color: ' . $link_hover_color . ';
     }
     
     .tippy-box[data-theme~="wp-tooltip"][data-placement^="top"] > .tippy-arrow::before {

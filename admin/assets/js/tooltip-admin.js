@@ -1,6 +1,10 @@
+/* global wpTooltip */
+
 const elementsAsColorPickers = {
 	'backgroundColor': '#333333',
 	'textColor': '#ffffff',
+	'linkColor': '#58b4ff',
+	'linkHoverColor': '#58b4ff',
 };
 
 const elementsWithPropsAsArray = [
@@ -124,7 +128,7 @@ function wpTooltip_renderColorPicker(element, defaultColor) {
 	jQuery(element).wpColorPicker(options);
 }
 
-document.addEventListener('DOMContentLoaded', ( ) => {
+document.addEventListener('DOMContentLoaded', () => {
 	const settings = wpTooltip_getDefaultSettings();
 	const ids = Object.keys(settings);
 

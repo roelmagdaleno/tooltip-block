@@ -107,6 +107,8 @@ class Tooltip {
 	        'zIndex'            => 9999,
             'backgroundColor'   => '#333333',
             'textColor'         => '#ffffff',
+            'linkColor'         => '#58b4ff',
+            'linkHoverColor'    => '#58b4ff',
         );
 
         update_option( $option_name, $settings );

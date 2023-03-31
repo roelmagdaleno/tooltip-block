@@ -1,10 +1,6 @@
 <div class="wrap">
     <h1>Tooltips</h1>
 
-    <p style="margin-bottom: 2rem;">
-        Powered by <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a>
-    </p>
-
 	<div class="wp-tooltip__admin-settings" style="display: flex; gap: 10px;">
 		<form method="POST" action="options.php" id="form" style="flex: 2;" novalidate>
 			<?php
@@ -30,7 +26,7 @@
 
 			<div style="display: none;">
 				<div id="wp-tooltip-0">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</div>
 			</div>
 
@@ -39,7 +35,9 @@
 					type="button"
 					class="button button-primary"
 					id="wp-tooltip__save-changes"
-				>Save Changes</button>
+				>
+					Save Changes
+				</button>
 			</p>
 		</div>
 	</div>
