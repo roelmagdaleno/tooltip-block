@@ -55,18 +55,22 @@ class Settings {
         register_setting( 'tooltips_group', 'tooltips_settings' );
 
 		$sections = array(
-			'general' => array(
+			'general'    => array(
 				'title'       => 'General',
 				'description' => 'The general settings of the tooltips.',
 			),
-			'styling' => array(
+			'styling'    => array(
 				'title'       => 'Styling',
 				'description' => 'The styling of the tooltips.',
+			),
+			'decoration' => array(
+				'title'       => 'Text Decoration',
+				'description' => 'The styles for text that displays the tooltip.',
 			),
 		);
 
 		$settings = array(
-			'general' => new Group( array(
+			'general'    => new Group( array(
 				new Checkbox( 'allowHTML', array(
 					'label'       => 'Allow HTML',
 					'description' => 'Determines if content strings are parsed as HTML instead of text.',
@@ -166,7 +170,7 @@ class Settings {
                     ),
                 ) ),
 			), 'tooltips_settings' ),
-			'styling' => new Group( array(
+			'styling'    => new Group( array(
 				new Text( 'backgroundColor', array(
 					'label'         => 'Background color',
 					'description'   => 'Specifies the background color of the tooltip.',
@@ -186,6 +190,25 @@ class Settings {
 					'label'         => 'Link hover color',
 					'description'   => 'Specifies the link color when hover inside the tooltip.',
 					'default_value' => '#58b4ff',
+				) ),
+			), 'tooltips_settings' ),
+			'decoration' => new Group( array(
+				new Select( 'lineStyle', array(
+					'label'         => 'Line style',
+					'description'   => 'Specifies the line style.',
+					'default_value' => 'dotted',
+					'options'       => array(
+						'solid'  => array( 'label' => 'Solid' ),
+						'double' => array( 'label' => 'Double' ),
+						'dotted' => array( 'label' => 'Dotted' ),
+						'dashed' => array( 'label' => 'Dashed' ),
+						'wavy'   => array( 'label' => 'Wavy' ),
+					),
+				) ),
+				new Text( 'lineColor', array(
+					'label'         => 'Line color',
+					'description'   => 'Specifies the line color.',
+					'default_value' => '#333333',
 				) ),
 			), 'tooltips_settings' ),
 		);
